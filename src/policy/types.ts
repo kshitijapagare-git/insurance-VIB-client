@@ -30,6 +30,18 @@ export interface PolicySummary {
   type: PolicyType
   status: PolicyStatus
   /** ISO 'yyyy-MM-dd' */
+  startDate: string
+  /** ISO 'yyyy-MM-dd' */
   endDate: string
   premium: number
+}
+
+export interface CancelPolicyRequest {
+  reason: string
+  /** ISO 'yyyy-MM-dd' */
+  effectiveDate: string
+}
+
+export interface CancelPolicyResult {
+  refundAmount: number
 }

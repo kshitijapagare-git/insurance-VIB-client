@@ -1,5 +1,6 @@
-import { Alert, Box, Card, CardContent, CircularProgress, Stack, Typography } from '@mui/material'
+import { Alert, Box, Card, CardContent, CircularProgress, Link, Stack, Typography } from '@mui/material'
 import { useMemo } from 'react'
+import { Link as RouterLink } from 'react-router-dom'
 import { getErrorMessage } from '../api/errors'
 import { useExpiringPolicies } from '../hooks/useExpiringPolicies'
 import { formatCurrency } from '../policy/format'
@@ -50,7 +51,11 @@ export function ExpiringSoonWidget() {
                 sx={{ alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}
               >
                 <Box>
-                  <Typography variant="body2">{policy.policyNumber}</Typography>
+                  <Typography variant="body2">
+                    <Link component={RouterLink} to={`/policies/${policy.id}`} underline="hover" color="inherit">
+                      {policy.policyNumber}
+                    </Link>
+                  </Typography>
                   <Typography variant="caption" color="text.secondary">
                     {policy.holderName} · {formatCurrency(policy.premium)}
                   </Typography>
