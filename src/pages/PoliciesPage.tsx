@@ -1,5 +1,11 @@
 import { Typography } from '@mui/material'
+import { ExpiringSoonWidget } from '../components/ExpiringSoonWidget'
 
 export function PoliciesPage() {
-  return <Typography variant="h4">Policies</Typography>
+  return (
+    <>
+      <ExpiringSoonWidget />
+      <Typography variant="h4">Policies</Typography>
+    </>
+  )
 }
